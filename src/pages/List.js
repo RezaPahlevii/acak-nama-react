@@ -17,6 +17,9 @@ export default function ListName() {
 
     function addListName() {
         const prev = [...ListName]
+        if (!inputName) {
+            return;
+        }
         prev.push({
             name: inputName
         })
@@ -46,50 +49,52 @@ export default function ListName() {
     }
 
     return (
-        <Container>
-            <Card>
-                <CardContent>
-                    <Stack direction='row' spacing={3}>
-                        <TextField
-                            variant="outlined"
-                            size="small"
-                            placeholder="Nama baru"
-                            value={inputName}
-                            onChange={(e) => setInputName(e.target.value)}
-                        />
-                        <Button
-                            variant="contained"
-                            onClick={() => isModeEdit ? editListname() : addListName()}
-                        >
-                            {isModeEdit ? 'Edit' : 'Tambah'}
-                        </Button>
-                    </Stack>
-                    <List>
-                        {
-                            ListName.map((item, index) => (
-                                <ListItem
-                                    key={index}
-                                    secondaryAction={
-                                        <Stack direction="row">
-                                            <IconButton edge="end" aria-label="edit" onClick={() => setModeEditFor(index)}>
-                                                <EditIcon />
-                                            </IconButton>
-                                            <IconButton edge="end" aria-label="delete" onClick={() => deleteListname(index)}>
-                                                <DeleteIcon />
-                                            </IconButton>
-                                        </Stack>
-                                    }>
-                                    <ListItemText primary={item.name} />
+        <div >
+            <Container sx={{ my: 7 }} align="center" >
+                <Card sx={{ maxWidth: 500 }}>
+                    <CardContent>
+                        <Stack direction='row' spacing={3}>
+                            <TextField
+                                variant="outlined"
+                                size="small"
+                                placeholder="Nama baru"
+                                value={inputName}
+                                onChange={(e) => setInputName(e.target.value)}
+                            />
+                            <Button
+                                variant="contained"
+                                onClick={() => isModeEdit ? editListname() : addListName()}
+                            >
+                                {isModeEdit ? 'Edit' : 'Tambah'}
+                            </Button>
+                        </Stack>
+                        <List>
+                            {
+                                ListName.map((item, index) => (
+                                    <ListItem
+                                        key={index}
+                                        secondaryAction={
+                                            <Stack direction="row">
+                                                <IconButton edge="end" aria-label="edit" onClick={() => setModeEditFor(index)}>
+                                                    <EditIcon />
+                                                </IconButton>
+                                                <IconButton edge="end" aria-label="delete" onClick={() => deleteListname(index)}>
+                                                    <DeleteIcon />
+                                                </IconButton>
+                                            </Stack>
+                                        }>
+                                        <ListItemText primary={item.name} />
 
-                                    {/* jika ingin nomor di belakang nama index mulai dari 1 */}
-                                    {/* <ListItemText primary={`${index + 1}. ${item.name}`} /> */}
+                                        {/* jika ingin nomor di belakang nama index mulai dari 1 */}
+                                        {/* <ListItemText primary={`${index + 1}. ${item.name}`} /> */}
 
-                                </ListItem>
-                            ))
-                        }
-                    </List>
-                </CardContent>
-            </Card>
-        </Container>
+                                    </ListItem>
+                                ))
+                            }
+                        </List>
+                    </CardContent>
+                </Card>
+            </Container>
+        </div>
     )
 }
