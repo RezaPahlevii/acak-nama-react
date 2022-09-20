@@ -3,6 +3,13 @@ import { Container } from "@mui/system";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useState } from "react";
+// import { Link } from "react-router-dom";
+import React from 'react';
+import AcakNama from "./Home";
+// import AcakNama from "./Home";
+// import ReactDOM from 'react-dom'
+
+
 
 export default function ListName() {
     const [ListName, setListname] = useState([
@@ -14,13 +21,14 @@ export default function ListName() {
     const [inputName, setInputName] = useState('')
     const [isModeEdit, setIsModeEdit] = useState(false)
     const [editIndex, setEditIndex] = useState()
+    // const [confirm] = useState(true)
 
     function addListName() {
         const prev = [...ListName]
         if (!inputName) {
             return;
         }
-        prev.push({
+        prev.unshift({
             name: inputName
         })
         setListname(prev)
@@ -39,13 +47,15 @@ export default function ListName() {
         setIsModeEdit(true)
         setInputName(ListName[index].name)
     }
-
     function deleteListname(index) {
-        const prev = [...ListName]
-        // console.log()
-        prev.splice(index, 1)
-        // console.log()
-        setListname(prev)
+        console.log(index)
+        if (window.confirm("Yakin hapus data?") === true) {
+            const prev = [...ListName]
+            // console.log()
+            prev.splice(index, 1)
+            // console.log()
+            setListname(prev)
+        }
     }
 
     return (
@@ -53,6 +63,12 @@ export default function ListName() {
             <Container sx={{ my: 7 }} align="center" >
                 <Card sx={{ maxWidth: 500 }}>
                     <CardContent>
+                        {/* <Link to="/home">
+                            <Button>
+                                Home
+                            </Button>
+                        </Link> */}
+
                         <Stack direction='row' spacing={3}>
                             <TextField
                                 variant="outlined"
@@ -92,6 +108,9 @@ export default function ListName() {
                                 ))
                             }
                         </List>
+                        Total Nama : {ListName.length}
+                        <AcakNama listItems={ListName} />
+
                     </CardContent>
                 </Card>
             </Container>

@@ -3,7 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Avatar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import AdbIcon from '@mui/icons-material/Adb';
-import { Image } from '@mui/icons-material';
+
 
 
 const pages = ['Home', 'Input'];
@@ -32,8 +32,9 @@ const ResponsiveAppBar = () => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Image
+                    <img
                         alt="sahaware"
+                        height={40}
                         src="/image/logo.png"
                         sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
