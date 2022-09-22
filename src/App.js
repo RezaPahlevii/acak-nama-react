@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <NavigatorBar />,
-      <List />
+      <List />,
       <Home />
     </div>
     // <Home />

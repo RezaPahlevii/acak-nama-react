@@ -62,7 +62,8 @@ export default function ListName() {
         <div >
             <Container sx={{ my: 7 }} align="center" >
                 <Card sx={{ maxWidth: 500 }}>
-                    <CardContent>
+                    <CardContent >
+                        <div><h3>List Nama</h3></div> <br />
                         {/* <Link to="/home">
                             <Button>
                                 Home
@@ -109,11 +110,13 @@ export default function ListName() {
                             }
                         </List>
                         Total Nama : {ListName.length}
-                        <AcakNama listItems={ListName} />
+
 
                     </CardContent>
                 </Card>
+
             </Container>
+            {/* <AcakNama listItems={ListName} /> */}
         </div>
     )
 }
