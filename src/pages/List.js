@@ -104,13 +104,11 @@ export default function ListName() {
 
                                         {/* jika ingin nomor di belakang nama index mulai dari 1 */}
                                         {/* <ListItemText primary={`${index + 1}. ${item.name}`} /> */}
-
                                     </ListItem>
                                 ))
                             }
                         </List>
                         Total Nama : {ListName.length}
-
 
                     </CardContent>
                 </Card>

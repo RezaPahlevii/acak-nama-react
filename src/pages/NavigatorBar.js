@@ -6,7 +6,6 @@ import AdbIcon from '@mui/icons-material/Adb';
 // import Home from './pages/Home';
 
 
-
 const pages = ['Home', 'Input'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

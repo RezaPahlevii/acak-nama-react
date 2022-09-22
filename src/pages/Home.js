@@ -57,7 +57,6 @@ export default function AcakNama(props) {
                         </ListItem>
                     </List>
                 </Stack>
-
                 <Button
 
                     margin="2"
