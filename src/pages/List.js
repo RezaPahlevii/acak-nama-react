@@ -56,6 +56,17 @@ export default function ListName() {
             // console.log()
             setListname(prev)
         }
+
+        // function actionListName() {
+        //     isModeEdit ? editListname() : addListName()
+        // }
+
+        // function onKeydownForm(e) {
+        //     if (e.key === 'Enter') {
+        //         actionListName()
+        //     }
+        // }
+
     }
 
     return (
@@ -77,15 +88,20 @@ export default function ListName() {
                                 placeholder="Nama baru"
                                 value={inputName}
                                 onChange={(e) => setInputName(e.target.value)}
+                            // onKeyDown={onKeydownForm}
                             />
                             <Button
                                 variant="contained"
                                 onClick={() => isModeEdit ? editListname() : addListName()}
+                            // onClick={() => actionListName()}
                             >
                                 {isModeEdit ? 'Edit' : 'Tambah'}
                             </Button>
                         </Stack>
-                        <List>
+                        <List style={{
+                            height: '300px',
+                            overflow: 'auto'
+                        }}>
                             {
                                 ListName.map((item, index) => (
                                     <ListItem

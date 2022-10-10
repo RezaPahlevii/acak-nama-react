@@ -22,18 +22,32 @@ export default function AcakNama(props) {
         return listItems[randomId].name
     }
 
+    let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) !== index)
+
     function randomItem() {
         setIsLoading(true)
         setTimeout(() => {
-            setSelectedItem = [
+            const listRandomName = [
                 getRandomName(),
                 getRandomName(),
                 getRandomName()
             ]
 
-            //    { setSelectedItem(listItems[randomId].name)}
-            setIsLoading(false)
-        }, 1000)
+            setSelectedItem(listRandomName)
+
+            const dup = findDuplicates(listRandomName)
+            if (dup.length > 0) {
+                randomItem()
+            } else {
+                setSelectedItem(listRandomName)
+                setIsLoading(false)
+            }
+
+        }, 100)
+
+        //     //    { setSelectedItem(listItems[randomId].name)}
+        //     setIsLoading(false)
+        // }, 1000)
     }
 
     return (
